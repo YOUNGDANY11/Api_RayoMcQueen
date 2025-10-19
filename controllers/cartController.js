@@ -46,20 +46,21 @@ const getForSesions = async(req,res)=>{
 
 const createInstruction = async(req, res) =>{
     try{
-        const {instruccion, sesion,velocidad} = req.body
-        if(!instruccion || !sesion || !velocidad){
+        const {instruccion,velocidad} = req.body
+        if(!instruccion || !velocidad){
             return res.status(400).json({
                 status:'error',
                 mensaje:'Faltan datos obligatorios'
             })
         }
-        const nuevaInstruccion = new cartModel({instruccion, sesion,velocidad})
+        const nuevaInstruccion = new cartModel({instruccion,velocidad})
         await nuevaInstruccion.save()
         return res.status(201).json({
             status:'success',
             nuevaInstruccion
         })
     }catch(error){
+	console.log(error)
         return res.status(500).json({
             status:'Error',
             mensaje:'No se pudo crear la instruccion'
