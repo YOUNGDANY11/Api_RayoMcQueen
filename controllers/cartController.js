@@ -24,14 +24,14 @@ const getInstructions = async(req, res) =>{
 
 const createInstruction = async(req, res) =>{
     try{
-        const {instruccion,velocidad} = req.body
-        if(!instruccion || !velocidad){
+        const {instruccion} = req.body
+        if(!instruccion ){
             return res.status(400).json({
                 status:'error',
                 mensaje:'Faltan datos obligatorios'
             })
         }
-        const nuevaInstruccion = new cartModel({instruccion,velocidad})
+        const nuevaInstruccion = new cartModel({instruccion})
         await nuevaInstruccion.save()
         return res.status(201).json({
             status:'success',

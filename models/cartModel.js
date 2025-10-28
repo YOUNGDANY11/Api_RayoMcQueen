@@ -4,6 +4,5 @@ const {Schema, model} = require('mongoose')
 
 const cartSchema = new Schema({
     instruccion : {type: String, required: true},
-    velocidad: {type: String, required:true}
 })
 module.exports = model('acciones', cartSchema)
