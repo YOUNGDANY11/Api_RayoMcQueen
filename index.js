@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const db = require('./config/db')
 const cartRoutes = require('./routes/cartRoutes')
-
+const controlRoutes = require('./routes/controlRoutes')
 const app = express()
 const PORT = process.env.PORT || 3000
 
@@ -25,7 +25,8 @@ app.use(express.json({
 
 app.use(express.urlencoded({extended:true}))
 
-app.use('/api', cartRoutes)
+app.use('/api/cart', cartRoutes)
+app.use('/api/control', controlRoutes)
 
 // Manejador centralizado de errores de parsing JSON
 app.use((err, req, res, next) => {

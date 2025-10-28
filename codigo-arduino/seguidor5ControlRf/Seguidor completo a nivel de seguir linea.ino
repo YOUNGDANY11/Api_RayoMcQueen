@@ -1,5 +1,3 @@
-
-
 const int sensorPin1 = 33;  // Sensor izquierdo
 const int sensorPin2 = 32;  // Sensor central
 const int sensorPin3 = 35;  // Sensor derecho
@@ -49,7 +47,7 @@ void loop() {
     int derBrusco = analogRead(sensorPin5);
 
     // Imprimir los valores de los sensores en el monitor serial
-
+/*
     Serial.print("Izquierda: ");
     Serial.print(izq);
     Serial.print(" | Centro: ");
@@ -60,7 +58,7 @@ void loop() {
     Serial.print(derBrusco);
     Serial.print(" | izquierdaBrusco: ");
     Serial.println(izqBrusco);
-
+*/
     // Lógica de seguimiento de línea
     if (centro < 1200 && izq > 1200 && der > 1200 && izqBrusco > 1200 && derBrusco > 1200 ) {// El robot está sobre la línea, avanzar recto
       digitalWrite(motor1Pin1, HIGH);
